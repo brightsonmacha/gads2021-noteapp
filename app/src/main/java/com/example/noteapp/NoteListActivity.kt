@@ -28,18 +28,4 @@ class NoteListActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        //menuInflater.inflate(R.menu.menu_main, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //print(item);
-        return  when(item.itemId){
-            R.id.action_bar -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-        //return super.onOptionsItemSelected(item)
-    }
 }
