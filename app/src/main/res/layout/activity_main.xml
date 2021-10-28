@@ -49,7 +49,10 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:background="@drawable/border_round"
+        android:lines="4"
         android:minHeight="48dp"
+        android:singleLine="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/spinnerCourse"
         app:layout_constraintHorizontal_bias="0.0"
@@ -57,15 +60,5 @@
         app:layout_constraintTop_toBottomOf="@+id/txtTitle"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck" />
-
-    <include
-        android:id="@+id/btn_save_note"
-        layout="@layout/content_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDesc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

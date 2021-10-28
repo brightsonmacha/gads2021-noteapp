@@ -2,8 +2,6 @@ package com.example.noteapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
@@ -27,5 +25,12 @@ class NoteListActivity : AppCompatActivity() {
         addBtnNote.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
+
+    }
+
+    override fun onResume() {
+        val noteList = findViewById<ListView>(R.id.noteList)
+        super.onResume()
+        (noteList.adapter as ArrayAdapter<*>).notifyDataSetChanged()
     }
 }
