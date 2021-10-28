@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NoteApp</string>
+    <string name="btn_save">Hifadhi</string>
+    <string name="note_list">Orodha ya noti</string>
+    <string name="add_note">Ongeza noti</string>
+    <string name="next">Mbele</string>
+    <string name="settings">Mipangilio</string>
+    <string name="add">Ongeza</string>
+</resources>

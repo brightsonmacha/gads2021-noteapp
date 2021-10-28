@@ -6,8 +6,8 @@ class CourseInfo(val courseId:String, val courseTitle: String) {
     }
 }
 
-class NoteInfo(var course:CourseInfo, var noteTitle: String) {
+class NoteInfo(var course:CourseInfo? = null, var noteTitle: String? = null, var noteDesc: String? = null) {
     override fun toString(): String {
-        return noteTitle
+        return noteTitle ?: ""
     }
 }

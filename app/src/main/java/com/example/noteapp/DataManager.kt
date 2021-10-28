@@ -25,10 +25,10 @@ object DataManager {
     }
 
     private fun initializeNotes(){
-        var note = NoteInfo(courses.getValue("java"), "This is Java Notes")
+        var note = NoteInfo(courses.getValue("java"), "Java Notes", "This is Java Notes")
         notes.add(note)
 
-        note = NoteInfo(courses.getValue("golang"), "This is Golang Notes")
+        note = NoteInfo(courses.getValue("golang"), "Golang Notes", "This is Golang Notes")
         notes.add(note)
     }
 }

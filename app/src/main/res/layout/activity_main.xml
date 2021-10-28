@@ -19,24 +19,27 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/txtTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:background="@drawable/border_round"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:background="@drawable/border_round"
+        android:minHeight="48dp"
         android:singleLine="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/spinnerCourse"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/spinnerCourse"
         app:layout_constraintTop_toBottomOf="@+id/spinnerCourse"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/txtDesc"
@@ -46,22 +49,16 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:background="@drawable/border_round"
+        android:lines="4"
         android:minHeight="48dp"
+        android:singleLine="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/spinnerCourse"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/spinnerCourse"
         app:layout_constraintTop_toBottomOf="@+id/txtTitle"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <include
-        android:id="@+id/btn_save_note"
-        layout="@layout/content_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDesc" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
