@@ -1,20 +1,21 @@
 package com.example.noteapp
 
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.noteapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private var notePosition = NOTE_SET_POSITION
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val adCourse = ArrayAdapter(
             this,
@@ -22,9 +23,7 @@ class MainActivity : AppCompatActivity() {
             DataManager.courses().values.toList()
         )
         adCourse.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-        val spinner = findViewById<Spinner>(R.id.spinnerCourse)
-        spinner.adapter = adCourse
+        binding.spinnerCourse.adapter = adCourse
 
         notePosition = savedInstanceState?.getInt(NOTE_POSITION, NOTE_SET_POSITION) ?:
             intent.getIntExtra(NOTE_POSITION, NOTE_SET_POSITION)
@@ -67,13 +66,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun saveNote() {
         val note = DataManager.notes[notePosition]
-        val txtDesc = findViewById<TextView>(R.id.txtDesc)
-        val txtTitle = findViewById<TextView>(R.id.txtTitle)
-        val spinner = findViewById<Spinner>(R.id.spinnerCourse)
-
-        note.noteTitle = txtTitle.text.toString()
-        note.course = spinner.selectedItem as CourseInfo
-        note.noteDesc = txtDesc.text.toString()
+        note.noteTitle = binding.txtTitle.text.toString()
+        note.course = binding.spinnerCourse.selectedItem as CourseInfo
+        note.noteDesc = binding.txtDesc.text.toString()
     }
 
     private fun moveNext() {
@@ -89,15 +84,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayNotes() {
         val note = DataManager.notes[notePosition]
-
         val course = DataManager.courses().values.indexOf(note.course)
-        val txtDesc = findViewById<TextView>(R.id.txtDesc)
-        val txtTitle = findViewById<TextView>(R.id.txtTitle)
-        val spinner = findViewById<Spinner>(R.id.spinnerCourse)
 
-        spinner.setSelection(course)
-
-        txtTitle.text = note.noteTitle
-        txtDesc.text = note.noteDesc
+        binding.spinnerCourse.setSelection(course)
+        binding.txtTitle.setText(note.noteTitle)
+        binding.txtDesc.setText( note.noteDesc)
     }
 }
