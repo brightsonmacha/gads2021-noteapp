@@ -1,5 +1,6 @@
 package com.example.noteapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -28,16 +29,19 @@ class NoteListActivity : AppCompatActivity() {
         //    startActivity(intent)
         //}
 
-        //binding.btnAddNote.setOnClickListener {
-        //    startActivity(Intent(this, MainActivity::class.java))
-        //}
+        binding.btnAddNote.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
         binding.noteList.layoutManager = LinearLayoutManager(this)
+        binding.noteList.adapter = NoteRecycleAdapter(this, DataManager.notes)
 
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onResume() {
         super.onResume()
-        (binding.noteList.adapter as ArrayAdapter<*>).notifyDataSetChanged()
+        binding.noteList.adapter?.notifyDataSetChanged()
+        //(binding.noteList.adapter as ArrayAdapter<*>).notifyDataSetChanged()
     }
 }
