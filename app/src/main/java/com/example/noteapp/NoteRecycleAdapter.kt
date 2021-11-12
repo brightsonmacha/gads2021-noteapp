@@ -1,6 +1,7 @@
 package com.example.noteapp
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,7 @@ class NoteRecycleAdapter(context : Context, private val notes : List<NoteInfo>) 
 
         holder.textCourse.text = note.course.toString()
         holder.textTile.text = note.noteTitle
+        holder.notePosition =  position
 
     }
 
@@ -30,8 +32,16 @@ class NoteRecycleAdapter(context : Context, private val notes : List<NoteInfo>) 
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textCourse =  itemView.findViewById<TextView>(R.id.noteTextCourse)
+        var textCourse =  itemView.findViewById<TextView>(R.id.noteTextCourse)
         val textTile = itemView.findViewById<TextView>(R.id.noteTextTitle)
+        var notePosition = 0
 
+        init {
+            itemView.setOnClickListener{
+                    val intent = Intent(itemView.context, MainActivity::class.java)
+                    intent.putExtra(NOTE_POSITION, notePosition)
+                    itemView.context.startActivity(intent)
+            }
+        }
     }
 }
